@@ -10,5 +10,5 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 # Comandos Git
 - Git config --global user.name "deivid santana"
 
-- Git config --global user.email "deivid.santana@aluno.aluno.ifsp.edu.br"
+- Git config --global user.email "deivid.santana@aluno."
 
