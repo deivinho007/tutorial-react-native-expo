@@ -1,62 +1,125 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.box1}>
-        <View style={styles.box2}></View>
-        <View style={styles.box2}></View>
+      <View style={styles.header}>
+        <Text>lOGO</Text>
+        <View style={styles.menu}></View>
       </View>
-      <Text style={styles.TituloPrincipal}>Titulo pricipal :) </Text>
-      <Text style={styles.Subtitulo}>Subtitulo :) </Text>
-      <Text style={styles.Paragrafo}> Esse é um paragrafo:) </Text>
-      <Text style={styles.text}>Saiba mais :) </Text>
-      <StatusBar style="auto" />
-      <View style={styles.box2}></View>
+      <View style={styles.content}>
+
+        <View style={styles.card}>
+          <View style={styles.image}></View>
+          <View style={styles.textbox}>
+            <Text style={styles.titulo}>COMPONENTES</Text>
+            <Text style={styles.text}>preojpowrpprewhi0worpjrwjhroihoiwrhorhhroowhoihrwohowhorhowhorhrhwohrwoakjdçlkddddddddjjpojpoeeeeeeeeeeejcophophcpochwpo</Text>
+          </View>                    
+        </View>             
+         
+        <View style={styles.btn}>
+          <Text style={styles.titulo}>Ver Mais</Text>
+        </View>
+      </View>
+
+      <View style={styles.footer}>
+        <Text style={styles.textfooter}>Santana</Text>
+      </View>
     </View>
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#6dff68ff',
     flex: 1,
-    backgroundColor: '#c2ebe9ff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  TituloPrincipal: {
-    fontFamily: 'poppins', 
-    fontSize: "49px",  
-    color: 'red',     
+  header: {
+    backgroundColor: '#683535ff',
+    flex: 1,
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+  },
+  content: {
+    backgroundColor: '#701313ff',
+    flex: 7,
+    width: '100%',
+    padding: 20,
+  },
+  menu: {
+    width: 40,
+    height: 40,
+    backgroundColor: '#7e1010ff',
+  },
+  card: {
+    backgroundColor: '#ff0f0fff',
+    width: '100%',
+    height: 300,
+    marginTop: 20,
+    borderRadius: 10,
+    padding: 30,
+    flexDirection: 'row'
+  },
+  image: {
+    width: 180,
+    height: 180,
+    backgroundColor: '#000000ff',
+  },
+  textbox:{
+    
+  },
+  titulo: {
+    color: '#ffffff',
+    fontSize: 20,
     fontWeight: 'bold',
-    marginVertical: '10px',  
+    textAlign: 'center',
   },
-   Subtitulo: {
-    fontFamily: 'poppins', 
-    fontSize: "29px",  
-    color: 'green',   
-    marginVertical: '15px',  
+  text: {
+    color: '#ffffff',
+    fontSize: 16
   },
-     Paragrafo: {
-    fontFamily: 'poppins', 
-    fontSize: "19px",  
-    color: 'puple',     
-  },
-     SaibaMais: {
-    fontFamily: 'poppins', 
-    fontSize: "15px",  
-    color: '#636363ff',     
-  },
-  box1: {
-    width: 50,
+  btn: {
+    width: 130,
     height: 50,
-    backgroundColor: '#b60000ff',
+    backgroundColor: '#ff0000ff',
+    borderRadius: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
   },
-   box2: {
-    width: 50,
-    height: 50,
-    backgroundColor: '#5e5e5eff',
-     marginVertical: '10px', 
+  footer: {
+    backgroundColor: '#ff5656ff',
+    flex: 1,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-});
+  textfooter: {
+    color: '#ffffff',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

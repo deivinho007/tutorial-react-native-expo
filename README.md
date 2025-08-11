@@ -12,3 +12,7 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 
 - Git config --global user.email "deivid.santana@aluno."
 
+# Componente do react 
+
+- o que é um componente no react uma função, todo o componente começa coma  a letra Maiuscula. estilização de componentes feita em css-in-js
+
