@@ -21,3 +21,21 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 - componente// é a parte que você separar, para melhor organização e manutenção
 
 - existe o componente react image no react native// existe sim mais é mais limitado, por isso usamos o expo image - npx expo install expo-image
+
+# Quais tipo de navegação eu posso usar com o expo.router
+
+- stack/pilha - colocar uma pagina em cima da outra em camadas 
+
+- tabs
+
+- drawer
+
+- modal 
+
+
+
+
+
+
+
+
