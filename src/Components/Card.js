@@ -1,12 +1,17 @@
 import { View, Text, StyleSheet } from 'react-native';
+import { Image } from 'expo-image';
 
-function Card() {
+function Card({ title, desc, img }) {
+
+
     return (
         <View style={styles.card}>
-            <View style={styles.image}></View>
+            <Image
+                style={styles.image}
+                source={img} />
             <View style={styles.textbox}>
-                <Text style={styles.titulo}>COMPONENTES</Text>
-                <Text style={styles.text}>preojpowrpprewhi0worpjrwjhroihoiwrhorhhroowhoihrwohowhorhowhorhrhwohrwoakjdçlkddddddddjjpojpoeeeeeeeeeeejcophophcpochwpo</Text>
+                <Text style={styles.titulo}>{title}</Text>
+                <Text style={styles.text}>{desc}</Text>
             </View>
         </View>
     )

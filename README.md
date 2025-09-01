@@ -19,3 +19,5 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 - React é um framework baseado em componentes, você pode separar um layout em partes para ultilizar,e o componente é separado de todo o codigo.
 
 - componente// é a parte que você separar, para melhor organização e manutenção
+
+- existe o componente react image no react native// existe sim mais é mais limitado, por isso usamos o expo image - npx expo install expo-image
