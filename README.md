@@ -32,6 +32,17 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 
 - modal 
 
+# Hooks 
+
+# Hooks
+- oque são hooks? R: são funções auxiliares
+- todos os hooks começam com a palavra "use"
+- só pode ser utilizado logo pós a criação de componente e antes do return
+
+
+const [nome, setNome] = useState("Renan")
+
+
 
 
 

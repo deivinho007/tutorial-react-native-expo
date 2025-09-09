@@ -4,6 +4,7 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
 
 
@@ -51,8 +52,15 @@ export default function RootLayout() {
             tabBarIcon: ({ color, size }) =><FontAwesome5 name="user" size={24} color={color} />
          }}
         />
-
-        
+        <Tabs.Screen
+                name="singup"
+                options={{
+                    title: 'Cadastro',
+                    tabBarIcon: ({ color }) => <FontAwesome name="user" size={24} color={color} />,
+                    //tabBarShowLabel: false,
+                    tabBarLabelStyle: { fontSize: 8, fontWeight: 'bold' }
+                }}
+            />
     </Tabs>
     )
 }
