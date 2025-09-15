@@ -1,24 +1,58 @@
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import { useState, useEffect } from 'react';
+import Card from '../../Components/CardUser';
 
 export default function Contact() {
-
     const router = useRouter();
+    const [users, setUsers] = useState([]);
 
+    useEffect(() => {
+        const listUsers = async () => {
+            try {
+                const response = await fetch('http://localhost:3333/profile'); // substitua pelo IP da sua máquina
+                if (response.ok) {
+                    console.log('lista carregada com sucesso');
+                    const data = await response.json();
+                    console.log(data.profiles);
+                    setUsers(data.profiles);
+                } else {
+                    console.log('erro ao carregar lista');
+                }
+            } catch (error) {
+                console.error('Erro na requisição:', error);
+            }
+        };
+
+        listUsers();
+    }, []);
 
     return (
         <View style={styles.container}>
-            <Text>Contact Page</Text>
-            <Button title='Home' onPress={() => router.replace('/ ')}></Button>
-              <Button title='Sobre' onPress={() => router.push('/abolt ')}></Button>
+            <Text>Página de contato</Text>
+            {users.length > 0 ? (
+                users.map((user) => (
+                    <Card
+                        key={user.id}
+                        nome={user.name}
+                        id={user.id} 
+                        email={user.email}
+                        avatar={user.avatar}
+                        users={users}
+                        setUsers={setUsers}
+                    />
+                ))
+            ) : (
+                <Text>Nenhum usuário encontrado.</Text>
+            )}
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
-    }
-})
+        alignItems: 'center',
+    },
+});

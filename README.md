@@ -42,6 +42,12 @@ npx expo start --tunnel  // para ver  o projeto no navegador
 
 const [nome, setNome] = useState("Renan")
 
+- o use state é do react
+
+-usereffect: é um hulk e dispara uma função sempre que o component é montado ou algum estado que esta sendo criado ou alterado 
+
+
+
 
 
 

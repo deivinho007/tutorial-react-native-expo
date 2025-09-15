@@ -57,7 +57,14 @@ export default function RootLayout() {
                 options={{
                     title: 'Cadastro',
                     tabBarIcon: ({ color }) => <FontAwesome name="user" size={24} color={color} />,
-                    //tabBarShowLabel: false,
+                    tabBarLabelStyle: { fontSize: 8, fontWeight: 'bold' }
+                }}
+            />
+             <Tabs.Screen
+                name="editUser"
+                options={{
+                    title: 'editar perfil',
+                    tabBarIcon: ({ color }) => <FontAwesome name="user" size={24} color={color} />,
                     tabBarLabelStyle: { fontSize: 8, fontWeight: 'bold' }
                 }}
             />

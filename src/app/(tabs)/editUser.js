@@ -1,11 +1,14 @@
 import { View, Text, Button, StyleSheet, TextInput } from "react-native"
-import { useRouter } from "expo-router"
+import { useRouter,useGlobalSearchParams } from "expo-router"
 import { useState } from "react";
 
 
-export default function Singup() {
+export default function editUser() {
     const router = useRouter();
 
+    const {id ,name: eName,email: eEmail,avatar: eAvatar} = useGlobalSearchParams()
+    
+//Todo:terminar o envio dos dados para o back
 
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
