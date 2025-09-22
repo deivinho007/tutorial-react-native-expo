@@ -2,11 +2,18 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Image } from 'expo-image';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { usePathname, useRouter } from 'expo-router';
+import { useUserStore } from '../stores/useUserStore.js'
+import { useRouter } from 'expo-router';
 
-function Card({id, nome, email, avatar, users, setUsers }) {
+function CardUser({ id, nome, email, avatar }) {
 
-    const handDelete = async () => {
+    console.log(id, nome, email, avatar)
+
+    const { users, setUsers } = useUserStore()
+    const router = useRouter();
+
+
+    const handleDelete = async () => {
         const response = await fetch(`http://localhost:3333/profile/${id}`, {
             method: "DELETE"
         })
@@ -21,11 +28,10 @@ function Card({id, nome, email, avatar, users, setUsers }) {
         }
     }
 
-    const handEdit = () =>{
-        console.log("Editar")
+    const handleEdit = () => {
         router.push({
-            Pathname:'/editUser',
-            params:{id,nome,email,avatar}
+            pathname: '/editUser',
+            params: { id, nome, email, avatar }
         })
     }
 
@@ -40,11 +46,11 @@ function Card({id, nome, email, avatar, users, setUsers }) {
             </View>
 
             <View>
-                <Pressable onPress={handDelete}>
-                    <AntDesign name="edit" size={24} color="black" />  
+                <Pressable onPress={handleEdit}>
+                    <AntDesign name="edit" size={24} color="black" />
                 </Pressable>
 
-                <Pressable onPress={handDelete}>
+                <Pressable onPress={handleDelete}>
                     <FontAwesome name="trash-o" size={24} color="White" />
                 </Pressable>
             </View>
@@ -91,4 +97,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Card
+export default CardUser

@@ -1,31 +1,33 @@
 import { View, Text, Button, StyleSheet, TextInput } from "react-native"
-import { useRouter,useGlobalSearchParams } from "expo-router"
+import { useRouter, useGlobalSearchParams } from "expo-router"
 import { useState } from "react";
+import { useUserStore } from '../../stores/useUserStore.js'
 
 
 export default function editUser() {
     const router = useRouter();
+    const { users, setUsers } = useUserStore()
 
-    const {id ,name: eName,email: eEmail,avatar: eAvatar} = useGlobalSearchParams()
-    
-//Todo:terminar o envio dos dados para o back
+    const { id, nome: eName, email: eEmail, avatar: eAvatar } = useGlobalSearchParams()
 
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("")
-    const [pass, setPass] = useState("")
-    const [avatar, setAvatar] = useState("")
+    //Todo:terminar o envio dos dados para o back
 
-   
+    const [name, setName] = useState(eName)
+    const [email, setEmail] = useState(eEmail)
+    const [pass, setPass] = useState()
+    const [avatar, setAvatar] = useState(eAvatar)
 
-    const handleSingup = async () => {
+
+
+    const handleEdit = async () => {
         const profile = {
             name,
             email,
             pass,
             avatar
         }
-        const response = await fetch("http://localhost:3333/profile", {
-            method: "POST",
+        const response = await fetch(`http://localhost:3333/profile/${id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -34,17 +36,25 @@ export default function editUser() {
 
 
         if (response.ok) {
-            console.log("Cadastrado com sucesso")
-            router.navigate('/profile')
-        }else{
-            console.log("Erro ao cadastrar")
+            console.log("Perfil editado com sucesso")
+
+            const updatedUsers = users.map((user) => {
+                if (user.id === id) {
+                    return { id, ...profile };
+                }
+                return user;
+            })
+            setUsers(updatedUsers)
+            router.navigate('/contact')
+        } else {
+            console.log("Erro ao editar perfil")
         }
     }
 
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Cadastro-se</Text>
+            <Text style={styles.title}>Edit</Text>
 
 
             <View style={{ width: '80%' }}>
@@ -73,11 +83,11 @@ export default function editUser() {
                     onChangeText={setAvatar}
                 />
             </View>
-            
+
             <View style={styles.button}>
                 <Button
-                    title="Cadastrar"
-                    onPress={handleSingup}
+                    title="Editar"
+                    onPress={handleEdit}
                 />
             </View>
         </View>
